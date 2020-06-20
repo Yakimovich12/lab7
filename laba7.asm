@@ -129,12 +129,7 @@ getPathAndNumberOfStarts proc
 
         inc     di
         inc     si
-;;;;;;;;;;;;;LOG;;;;;;;;;;;;;;;;;
-        ;push    ax
-        ;lea     dx, log_zero
-        ;call    puts
-        ;pop     ax
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
         cmp byte ptr es:[si], byte ptr '$'
         je NoArgsExc
 
@@ -160,14 +155,6 @@ getPathAndNumberOfStarts proc
 
         cmp byte ptr es:[si], byte ptr 0dh
         jne getNumberOfStarts
-;;;;;;;;;;;;;LOG;;;;;;;;;;;;;;;;;
-    ;push    ax
-    ;lea     dx, log_non_zero
-    ;call    puts
-    ;pop     ax
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-    ;cmp byte ptr es:[si], byte ptr '$'
-    ;jne NoArgsExc
 
     popa
     ret
@@ -249,23 +236,6 @@ start proc
         call wrongEnviromentException
         cmp ax, 0Bh
         call wrongFormatException
-        ;mov si, offset tempVar
-        ;call itoa
-        ;mov dx, offset tempVar
-        ;call puts
-        ;call exit   
-    
-;;;;;;;;;;;;;;;;;;;;;;;;;LOGS;;;;;;;;;;;;;;;;;;;;;;;;;
-    ;push    dx
-    ;lea     dx, fileName
-    ;call    puts
-    ;pop     dx
-    ;push    dx
-    ;lea     dx, tempString
-    ;call    puts
-    ;call    exit
-    ;pop     dx
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 endp  
 fileNotFoundException proc
