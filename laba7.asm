@@ -8,7 +8,7 @@ empty_segment ENDS
 
 .data
     NoArgsException     db "Usage [fileName] [NumberOfStarts]", 0Dh, 0Ah, '$'
-    ;fileName            db "C:\test.txt", 0
+    
     fileName            db 256 dup(0)
     tempString          db 256 dup('$')    
     tempVar             db 256 dup('$')    
